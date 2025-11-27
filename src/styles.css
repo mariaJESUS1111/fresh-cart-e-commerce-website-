@@ -1,1 +1,36 @@
-/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@300&display=swap');
+
+body {
+  font-family: 'Encode Sans Expanded', sans-serif !important;
+}
+
+.product .btn {
+  transition: transform 1s, opacity 1s;
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+.product:hover .btn {
+  opacity: 1;
+  transform: translateY(0%);
+}
+
+
+
+body {
+  font-family: var(--font-family) !important;
+}
+
+.product .btn {
+  transition: transform 1s, opacity 1s;
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+.product:hover .btn {
+  opacity: 1;
+  transform: translateY(0%);
+}
+

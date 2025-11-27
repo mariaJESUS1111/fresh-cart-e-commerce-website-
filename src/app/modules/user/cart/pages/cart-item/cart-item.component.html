@@ -1,0 +1,28 @@
+<div class="grid grid-cols-12 my-2 p-3 border-gray-300 py-2 gap-6 shadow rounded">
+  <div class="col-span-2">
+    <img  [src]="product.product.imageCover" class="w-full rounded">
+  </div>
+
+  <div class="col-span-10 flex justify-between">
+
+    <div>
+      <h2 class="font-bold text-2xl">{{ product.product.title }}</h2>
+      <span class="text-main my-3 block">Price: {{product.price}} EGP</span>
+
+      <button class="bg-green-500 text-white px-3 py-1 rounded cursor-pointer"
+              (click)="remove()">
+        <i class="fa fa-trash-can"></i> Remove
+      </button>
+    </div>
+
+    <div class="flex gap-3 items-center">
+      <button class="bg-gray-300 px-2 rounded" (click)="inc()">+</button>
+      <span>{{ product.count }}</span>
+      <button class="bg-gray-300 px-2 rounded disabled:opacity-50"
+              [disabled]="product.count <= 1"
+              (click)="dec()">-</button>
+    </div>
+
+  </div>
+</div>
+

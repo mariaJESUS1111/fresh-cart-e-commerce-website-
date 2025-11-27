@@ -1,0 +1,15 @@
+<h1 class="text-3xl font-bold my-10 text-center text-green-600">Shop by Category</h1>
+
+<owl-carousel-o [options]="customOptions">
+  <ng-template carouselSlide *ngFor="let slide of categories">
+    <img
+      [src]="slide.image"
+      class="w-full h-[15rem] object-cover rounded-xl shadow-md hover:scale-105 transition-transform duration-300"
+      [alt]="slide.name"
+      [title]="slide.name"
+    />
+    <div class="text-center mt-2 font-medium text-gray-700">
+      {{ slide.name }}
+    </div>
+  </ng-template>
+</owl-carousel-o>
