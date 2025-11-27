@@ -1,0 +1,52 @@
+<!-- src/app/shared/components/navbar/navbar.component.html -->
+<nav class="bg-white shadow-md fixed top-0 left-0 w-full z-50">
+  <div class="flex items-center justify-between max-w-screen-xl mx-auto px-6 py-3">
+    <div class="logo">
+      <a routerLink="/" class="flex items-center">
+        <img src="./images/freshcart-logo.svg" alt="FreshCart" class="h-8" />
+      </a>
+    </div>
+
+    <button (click)="toggleMobile()" class="md:hidden text-gray-700 text-2xl">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <div [class.hidden]="!isMobileOpen" class="md:flex md:items-center w-full md:w-auto mt-4 md:mt-0">
+      @if ( authType=='user') {
+      <ul class="flex flex-col md:flex-row gap-4 text-gray-700 font-medium">
+        <li><a routerLink="/user/home" routerLinkActive="text-main" class="hover:text-cyan-500">Home</a></li>
+        <li><a routerLink="/user/products" routerLinkActive="text-main" class="hover:text-cyan-500">Products</a></li>
+        <li><a routerLink="/user/categories" routerLinkActive="text-main" class="hover:text-cyan-500">Categories</a></li>
+        <li><a routerLink="/user/brands" routerLinkActive="text-main" class="hover:text-cyan-500">Brands</a></li>
+
+        <!-- Cart link with badge -->
+        <li class="relative">
+          <a routerLink="/user/cart" routerLinkActive="text-main" class="hover:text-cyan-500 flex items-center gap-2">
+            <span class="hidden md:inline">Cart</span>  <i class="fa-solid fa-cart-shopping text-xl"></i>
+
+
+            <!-- badge -->
+            <span
+              *ngIf="cartCount() > 0"
+              class="cart-badge"
+              [class.badge-bump]="bump$()"
+              aria-hidden="true">
+              {{ cartCount() }}
+            </span>
+          </a>
+        </li>
+      </ul>
+      }
+
+      <ul class="flex flex-col md:flex-row gap-4 md:ml-6 text-gray-700 font-medium ms-auto">
+        @if (authType=='auth') {
+        <li><a routerLink="/auth/login" routerLinkActive="text-main" class="hover:text-cyan-500">Login</a></li>
+        <li><a routerLink="/auth/register" routerLinkActive="text-main" class="hover:text-cyan-500">Register</a></li>
+        }
+        @else {
+        <li><a (click)="logout()" routerLink="/logout" routerLinkActive="text-main" class="hover:text-cyan-500">Logout</a></li>
+        }
+      </ul>
+    </div>
+  </div>
+</nav>

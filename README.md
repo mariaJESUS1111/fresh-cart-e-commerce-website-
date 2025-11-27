@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # FreshCart
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.17.
@@ -57,3 +58,6 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+=======
+"# fresh-cart-e-commerce-website-" 
+>>>>>>> 0e80c87d740e4e02da8c477556645a26b8edaa77

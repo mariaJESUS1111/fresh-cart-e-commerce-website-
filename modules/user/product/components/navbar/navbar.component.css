@@ -1,0 +1,35 @@
+/* src/app/shared/components/navbar/navbar.component.css */
+
+nav { z-index: 9999; }
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -12px;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: red ;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 999px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  transform-origin: center;
+  transition: transform 120ms ease;
+}
+
+/* bump animation class toggled by Angular */
+.badge-bump {
+  animation: bump 360ms ease;
+}
+
+@keyframes bump {
+  0% { transform: scale(1); }
+  25% { transform: scale(1.2); }
+  50% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
