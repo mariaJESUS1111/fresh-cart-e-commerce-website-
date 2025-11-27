@@ -1,0 +1,38 @@
+name: Deploy Angular App
+
+on:
+  push:
+    branches:
+      - main   # or your branch name
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout the repo
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      # 2. Setup Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'   # or the version you use locally
+
+      # 3. Install dependencies
+      - name: Install Dependencies
+        run: npm ci --legacy-peer-deps
+
+      # 4. Build Angular app using npx
+      - name: Build Angular App
+        run: npx ng build --configuration production --base-href "/fresh-cart-e-commerce-website-/"
+
+      # 5. Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v7
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist/fresh-cart
+          # Optional: set your custom branch for GitHub Pages
+          # publish_branch: gh-pages

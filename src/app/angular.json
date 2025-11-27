@@ -38,11 +38,10 @@
 
           "configurations": {
             "production": {
-              "baseHref": "/",
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "700kB",
+                  "maximumWarning": "500kB",
                   "maximumError": "1MB"
                 },
                 {
@@ -101,8 +100,6 @@
             "styles": ["src/styles.css"],
             "scripts": []
           }
-
-
         }
       }
     }

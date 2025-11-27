@@ -1,0 +1,44 @@
+<app-alert [message]="alertMessage" [type]="alertType"></app-alert>
+
+
+@if (isLoaded) {
+
+@if (cartDetails?.numOfCartItems!=0) {
+  <section class="container mx-auto bg-gray-100 p-4 rounded">
+  <h1 class="text-3xl font-bold mx-3">Shop Cart :</h1>
+
+  <p class="text-green-500 my-2 mx-3">
+    Total Cart Price: {{ cartDetails?.data?.totalCartPrice }} EGP
+  </p>
+
+  @for (product of cartDetails?.data?.products; track $index) {
+    <app-cart-item
+      [product]="product"
+      (removeItem)="removeItem($event)"
+      (increase)="increaseQuantity($event)"
+      (decrease)="decreaseQuantity($event)">
+    </app-cart-item>
+  }
+
+  <div class="flex justify-between mt-10">
+    <button routerLink="/user/products" class="bg-green-400 text-white px-4 py-2 cursor-pointer rounded-circle ">
+      Continue Shopping >
+    </button>
+
+    <button
+  (click)="goToCheckout()"
+  class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition cursor-pointer rounded-circle">
+  checkout <span>{{ cartDetails?.data?.totalCartPrice }}</span>
+</button>
+
+
+  </div>
+</section>
+}
+
+}
+@else {
+<h2 class="my-10 text-center text-green-500 text-4xl"> Cart is empty...</h2>
+}
+
+

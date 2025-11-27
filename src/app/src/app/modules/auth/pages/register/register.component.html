@@ -1,0 +1,51 @@
+<div class="max-w-lg w-100 mx-auto my-10 border p-5 border-gray-300 rounded-2xl">
+  <h1 class="font-bold my-6 mb-5 text-xl">Register</h1>
+  <form [formGroup]="authForm" (ngSubmit)="submitForm()"> <!-- Name -->
+    <div class="mb-5"> <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Your Name</label>
+      <input formControlName="name" id="name"
+      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Type your name..." required />
+      <div *ngIf="authForm.get('name')?.errors && authForm.get('name')?.touched" class="bg-red-100 border border-red-400 text-red-700 px-4 my-4 rounded">
+         <ul class="list-disc pl-5">
+           <li *ngIf="authForm.get('name')?.errors?.['required']">Name is required</li>
+            <li *ngIf="authForm.get('name')?.errors?.['minlength']">Must be at least 2 characters</li>
+             <li *ngIf="authForm.get('name')?.errors?.['maxlength']">Must not exceed 20 characters</li>
+            </ul>
+          </div>
+        </div>
+         <!-- Email -->
+           <div class="mb-5"> <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Your Email</label>
+             <input type="email" formControlName="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Type your email..." required />
+              <div *ngIf="authForm.get('email')?.errors && authForm.get('email')?.touched" class="bg-red-100 border border-red-400 text-red-700 px-4 my-4 rounded"> <ul class="list-disc pl-5">
+                 <li *ngIf="authForm.get('email')?.errors?.['required']">Email is required</li>
+                 <li *ngIf="authForm.get('email')?.errors?.['email']">Please enter a valid email address</li>
+                 </ul>
+                 </div>
+                 </div>
+                 <!-- Password -->
+                   <div class="mb-5"> <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Your Password</label>
+                     <input type="password" formControlName="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Type your password..." required />
+                      <div *ngIf="authForm.get('password')?.errors && authForm.get('password')?.touched" class="bg-red-100 border border-red-400 text-red-700 px-4 my-4 rounded"> <ul class="list-disc pl-5"> <li *ngIf="authForm.get('password')?.errors?.['required']">Password is required</li>
+                         <li *ngIf="authForm.get('password')?.errors?.['pattern']">Password must contain: <ul class="list-disc pl-5"> <li>At least one uppercase letter</li> <li>At least one lowercase letter</li> <li>At least one digit</li> <li>At least one special character (#?!&#64;$%^&*-)</li> <li>Minimum 8 characters long</li>
+                         </ul>
+                         </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <!-- Confirm Password -->
+                     <div class="mb-5">
+                      <label for="rePassword" class="block mb-2 text-sm font-medium text-gray-900">Confirm Password</label>
+                       <input type="password" formControlName="rePassword" id="rePassword" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Re-type your password..." required />
+                       <div *ngIf="authForm.hasError('passwordMismatch') && authForm.get('rePassword')?.touched"
+                       class="bg-red-100 border border-red-400 text-red-700 px-4 my-4 rounded"> Passwords do not match.
+                      </div>
+                      </div>
+                      <!-- Error Message -->
+                       <div *ngIf="errorMsg" class="bg-red-100 border border-red-400 text-red-700 px-3 py-2 rounded">
+                         {{ errorMsg }}
+                         </div>
+                         <!-- Submit Button -->
+                          <button type="submit"
+                           class="bg-green-500 rounded hover:bg-green-300 transition duration-500 text-white mt-4 px-5 py-2 cursor-pointer">
+                           Register </button>
+                        </form>
+                       </div>

@@ -1,0 +1,9 @@
+.product {
+  /* Smooth transition for the scale effect */
+  transition: transform 0.3s ease-in-out;
+}
+
+.product:hover {
+  /* The actual scale effect */
+  transform: scale(1.05);
+}

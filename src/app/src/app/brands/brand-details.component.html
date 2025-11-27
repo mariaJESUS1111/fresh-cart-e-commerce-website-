@@ -1,0 +1,10 @@
+<section class="container mx-auto px-4 py-6">
+  <div *ngIf="isLoading" class="text-center text-gray-500">Loading brand...</div>
+  <div *ngIf="errorMsg" class="text-center text-red-500">{{ errorMsg }}</div>
+
+  <div *ngIf="brand" class="max-w-3xl mx-auto text-center p-6 border rounded-2xl shadow-md">
+    <h2 class="text-3xl font-bold mb-4">{{ brand.name }}</h2>
+    <img [src]="brand.image" [alt]="brand.name" class="w-full h-64 object-cover rounded-lg mb-4"/>
+    <p class="text-gray-700">Here you can add more details about the brand if available.</p>
+  </div>
+</section>

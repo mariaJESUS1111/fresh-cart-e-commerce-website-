@@ -1,0 +1,10 @@
+.position-relative {
+  position: relative;
+}
+.fa {
+  color: #666;
+  font-size: 18px;
+}
+.fa:hover {
+  color: #000;
+}

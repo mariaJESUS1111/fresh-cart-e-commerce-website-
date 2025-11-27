@@ -1,0 +1,7 @@
+<section class="my-5 mx-5">
+  <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
+    @for (product of products; track $index) {
+      <product-card [product]="product"></product-card>
+    }
+  </div>
+</section>
