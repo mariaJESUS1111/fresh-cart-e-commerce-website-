@@ -1,47 +1,42 @@
-<div
-  class="product group bg-white rounded-lg shadow-md overflow-hidden hover:scale-105 transition-transform duration-300 cursor-pointer"
->
-<a [routerLink]="['/user/product-details', product.id]"
+<div class="product group bg-white rounded-lg shadow-md overflow-hidden cursor-pointer">
 
+    <!-- Product click navigates to details -->
+    <a [routerLink]="['/user/product-details', product.id]" class="block">
+        <img
+            [src]="product.imageCover"
+            alt="{{ product.title }}"
+            class="w-full h-64 object-cover"
+        />
 
+        <div class="p-3 flex flex-col justify-between">
+            <div>
+                <h4 class="text-emerald-400 text-sm font-medium">
+                    {{ product.category.name }}
+                </h4>
+                <h2 class="text-lg font-semibold line-clamp-1 mt-1">
+                    {{ product.title }}
+                </h2>
 
-
-    class="block group bg-white rounded-lg shadow-md overflow-hidden hover:scale-105 transition-transform duration-300 cursor-pointer"
-  >
-    <img
-      [src]="product.imageCover"
-      alt="{{ product.title }}"
-      class="w-full h-64 object-cover"
-    />
-
-    <div class="p-3 flex flex-col justify-between">
-      <div>
-        <h4 class="text-emerald-400 text-sm font-medium">
-          {{ product.category.name }}
-        </h4>
-        <h2 class="text-lg font-semibold line-clamp-1 mt-1">
-          {{ product.title }}
-        </h2>
-
-        <div class="flex justify-between items-center mt-3">
-          <span class="text-gray-800 font-bold">{{ product.price }} EGP</span>
-          <span class="text-amber-400 flex items-center gap-1">
-            <i class="fa-solid fa-star"></i> {{ product.ratingsAverage }}
-          </span>
+                <div class="flex justify-between items-center mt-3">
+                    <span class="text-gray-800 font-bold">{{ product.price }} EGP</span>
+                    <span class="text-amber-400 flex items-center gap-1">
+                        <i class="fa-solid fa-star"></i> {{ product.ratingsAverage }}
+                    </span>
+                </div>
+            </div>
         </div>
-      </div>
+    </a>
 
-      <!-- Button section -->
-      <div
-        class="flex justify-center mt-4 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0"
-      >
+  
+    <div class="flex justify-center mb-4">
         <button
-          class="bg-green-600 text-white px-6 py-2 rounded-md hover:bg-green-600/80 transition-colors duration-200 cursor-pointer"
-          (click)="$event.preventDefault()"
+            class="btn bg-green-600 text-white px-6 py-2 rounded-md hover:bg-green-600/80 active:bg-green-500 transition-colors duration-150 cursor-pointer"
+            (click)="addToCart($event, product.id)"
+            [disabled]="isAdding"
         >
-          Add to Cart
+            {{ isAdding ? 'Adding...' : 'Add to Cart' }}
         </button>
-      </div>
+
+
     </div>
-  </a>
 </div>
