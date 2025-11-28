@@ -5,13 +5,12 @@
 @tailwind components;
 
 /* ---------------------------------------------------- */
-/* 2. EXTERNAL LIBRARY IMPORTS                          */
-/* These must be imported *before* utilities run.       */
+/* 2. EXTERNAL LIBRARY IMPORTS (WITHOUT THE TILDE ~)    */
 /* ---------------------------------------------------- */
-@import "~@fortawesome/fontawesome-free/css/all.min.css";
-@import "~ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.carousel.min.css";
-@import "~ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.theme.default.min.css";
-@import "~ngx-toastr/toastr.css";
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+@import "ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.carousel.min.css";
+@import "ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.theme.default.min.css";
+@import "ngx-toastr/toastr.css";
 
 /* ---------------------------------------------------- */
 /* 3. TAILWIND UTILITIES (MUST BE LAST DIRECTIVE)       */
