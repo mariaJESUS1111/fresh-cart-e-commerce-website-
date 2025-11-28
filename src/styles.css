@@ -1,23 +1,60 @@
-/* Google font */
-@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@300&display=swap');
-
-
+/* ---------------------------------------------------- */
+/* 1. TAILWIND CORE DIRECTIVES (MUST BE FIRST)          */
+/* ---------------------------------------------------- */
 @tailwind base;
 @tailwind components;
+
+/* ---------------------------------------------------- */
+/* 2. EXTERNAL LIBRARY IMPORTS                          */
+/* These must be imported *before* utilities run.       */
+/* ---------------------------------------------------- */
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
+@import "~ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.carousel.min.css";
+@import "~ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.theme.default.min.css";
+@import "~ngx-toastr/toastr.css";
+
+/* ---------------------------------------------------- */
+/* 3. TAILWIND UTILITIES (MUST BE LAST DIRECTIVE)       */
+/* ---------------------------------------------------- */
 @tailwind utilities;
 
 
+/* 4. GLOBAL IMPORTS AND CUSTOM STYLES                  */
+/* ---------------------------------------------------- */
+
+/* External Font URL */
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@300&display=swap');
+
+/* Global CSS Variables (used in your custom styles) */
+:root {
+  --main-color: #0aad0a;
+  --shadow: rgba(145,158,171,.2) 0px 2px 4px -1px, rgba(145,158,171,.14) 0px 4px 5px 0px, rgba(145,158,171,.12) 0px 1px 10px 0px;
+}
+
+/* Global Styles */
 body {
-  font-family: 'Encode Sans Expanded', sans-serif !important;
+    /* Uses the font family defined in tailwind.config.js */
+    font-family: 'Encode Sans Expanded', sans-serif !important;
+}
+
+/* Custom Component Styles */
+a, a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+.product:hover {
+    box-shadow: var(--shadow);
+    border: solid 1px var(--main-color);
 }
 
 .product .btn {
-  transition: transform 1s, opacity 1s;
-  transform: translateY(100%);
-  opacity: 0;
+    transition: transform 1s, opacity 1s;
+    transform: translateY(100%);
+    opacity: 0;
 }
 
 .product:hover .btn {
-  opacity: 1;
-  transform: translateY(0%);
+    opacity: 1;
+    transform: translateY(0%);
 }
